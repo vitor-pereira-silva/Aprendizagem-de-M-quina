@@ -1,16 +1,17 @@
 import pandas as pd 
-
+import numpy as np
 # criar um datafrsme 
 
 marketing = pd.read_csv('marketing.csv', delimiter=',')
 
 print(marketing.head(5))
 
-# Verifique o tipo de dado da coluna is_retained
-print(marketing['is_retained'].dtype)
 
-# Converta is_retained para booleano
-marketing['is_retained'] = marketing['is_retained'].astype('bool')
+print(marketing.describe(include='all'))
 
-# Verifique o tipo de dado da coluna is_retained
-print(marketing['is_retained'].dtype) 
+print(marketing['converted'].head(5))
+
+#conversao 
+marketing['converted']=marketing['converted'].astype('bool')
+
+#marketing=['is_house_Ads']=np.where(marketing['marketing_channel'] == 'House Ads',True, False)
